@@ -1,0 +1,12 @@
+{
+  "name": "iosched",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel"
+  },
+  "dependencies": {
+    "@vercel/og": "0.6.2"
+  }
+}

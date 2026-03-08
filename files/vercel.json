@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/widget.js": {
+      "runtime": "edge"
+    }
+  }
+}

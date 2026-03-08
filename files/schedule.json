@@ -1,0 +1,55 @@
+{
+  "schedule": {
+    "Monday":    { "emoji": "💪", "theme": "#3B82F6", "blocks": [
+      { "type": "college", "label": "College",    "task": "TM291 Deep Work",       "time": "8:30" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "DW Nicos Weg",         "time": "10:15" },
+      { "type": "cyber",   "label": "Cyber 🔐",    "task": "Linux + Kali VM",      "time": "13:00" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "Vocab + Anki",         "time": "14:45" },
+      { "type": "college", "label": "College",    "task": "Review + Anki",        "time": "16:00" }
+    ]},
+    "Tuesday":   { "emoji": "🎓", "theme": "#8B5CF6", "blocks": [
+      { "type": "college", "label": "College",    "task": "TM291 Prep",           "time": "8:30" },
+      { "type": "lecture", "label": "Lecture",    "task": "TM291 — Marwa Hassan", "time": "10:30" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "DW Full Lesson",       "time": "13:00" },
+      { "type": "cyber",   "label": "Cyber 🔐",    "task": "Bash Scripting",       "time": "14:45" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "Shadowing Practice",   "time": "16:30" }
+    ]},
+    "Wednesday": { "emoji": "🟢", "theme": "#10B981", "blocks": [
+      { "type": "german",  "label": "German 🇩🇪",  "task": "DW Peak Hour Block",   "time": "8:30" },
+      { "type": "cyber",   "label": "Cyber 🔐",    "task": "Python Pentesting",    "time": "10:15" },
+      { "type": "college", "label": "College",    "task": "Assignments",          "time": "13:00" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "Tandem + Busuu",       "time": "14:45" },
+      { "type": "startup", "label": "Startup 💡",  "task": "Ideation Session",     "time": "16:00" }
+    ]},
+    "Thursday":  { "emoji": "⚡", "theme": "#8B5CF6", "blocks": [
+      { "type": "college", "label": "College",    "task": "Double Lecture Prep",  "time": "8:30" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "DW Lesson",            "time": "10:15" },
+      { "type": "lecture", "label": "Lecture",    "task": "T216B — Sherif Rostom","time": "12:30" },
+      { "type": "lecture", "label": "Lecture",    "task": "TM311 — Online",       "time": "15:00" },
+      { "type": "college", "label": "College",    "task": "Notes Review",         "time": "17:00" }
+    ]},
+    "Friday":    { "emoji": "🏋️", "theme": "#EF4444", "blocks": [
+      { "type": "college", "label": "College",    "task": "Weekly Check",         "time": "8:30" },
+      { "type": "cyber",   "label": "Cyber 🔐",    "task": "Networking + Wireshark","time": "10:15" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "Light Block + Anki",   "time": "13:00" },
+      { "type": "gym",     "label": "Gym 🏋️",      "task": "Strength Training",    "time": "14:00" },
+      { "type": "startup", "label": "Startup 💡",  "task": "Founder Reading",      "time": "16:00" }
+    ]},
+    "Saturday":  { "emoji": "🟡", "theme": "#F59E0B", "blocks": [
+      { "type": "gym",     "label": "Gym 🏋️",      "task": "Hypertrophy Session",  "time": "9:00" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "Full Block + Tandem",  "time": "11:00" },
+      { "type": "cyber",   "label": "Cyber 🔐",    "task": "DVWA Lab Hands-On",    "time": "13:30" },
+      { "type": "college", "label": "College",    "task": "Deep Work Session",    "time": "15:15" },
+      { "type": "startup", "label": "Startup 💡",  "task": "Weekly Review",        "time": "16:45" }
+    ]},
+    "Sunday":    { "emoji": "😴", "theme": "#64748B", "blocks": [
+      { "type": "gym",     "label": "Gym 🏋️",      "task": "Active Recovery",      "time": "9:00" },
+      { "type": "german",  "label": "German 🇩🇪",  "task": "Weekly Review + Anki", "time": "11:00" },
+      { "type": "college", "label": "College",    "task": "Next Week Prep",       "time": "13:30" },
+      { "type": "cyber",   "label": "Cyber 🔐",    "task": "GitHub Docs Review",   "time": "15:00" }
+    ]}
+  },
+  "habits":      { "College": false, "German": false, "Cyber": false, "Gym": false, "Startup": false },
+  "streaks":     { "German": 4, "Gym": 3, "Cyber": 6 },
+  "weekProgress": 60
+}

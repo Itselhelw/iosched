@@ -1,11 +1,10 @@
-// app/api/widget/route.js
-import { ImageResponse } from 'next/og';
-// We import from a relative path outside the app directory
-import scheduleData from '../../../../data/schedule.json';
+// api/widget.js
+import { ImageResponse } from '@vercel/og';
+// Edge runtime uses relative path from root for config if not using app router
+import scheduleData from '../data/schedule.json';
 
-export const runtime = 'edge';
+export const config = { runtime: 'edge' };
 
-// ── Colors per block type ───────────────────────────────────────────────────
 const COLORS = {
     college: { bg: '#1e3a5f', border: '#3B82F6', dot: '#60A5FA', text: '#BFDBFE' },
     german: { bg: '#064e3b', border: '#10B981', dot: '#34D399', text: '#A7F3D0' },
@@ -29,14 +28,13 @@ function getDate() {
     return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'Africa/Cairo' });
 }
 
-export async function GET(req) {
+export default function handler(req) {
     const url = new URL(req.url);
     const today = url.searchParams.get('day') || getToday();
     const time = getTime();
     const date = getDate();
     const prog = parseInt(url.searchParams.get('progress') || String(scheduleData.weekProgress), 10);
 
-    // parse habits: ?habits=1,0,1,1,0
     const habitsParam = url.searchParams.get('habits');
     const habitKeys = Object.keys(scheduleData.habits);
     const habitDone = habitsParam
@@ -55,14 +53,12 @@ export async function GET(req) {
                 padding: '18px 22px 14px', fontFamily: 'sans-serif',
                 position: 'relative', overflow: 'hidden',
             }}>
-                {/* Subtle top accent line */}
                 <div style={{
                     position: 'absolute', top: 0, left: 0, right: 0, height: 2,
                     background: `linear-gradient(90deg, transparent, ${dayData.theme}, transparent)`,
                     display: 'flex',
                 }} />
 
-                {/* HEADER */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         <span style={{ fontSize: 10, color: '#475569', fontWeight: 700, letterSpacing: '0.12em' }}>
@@ -78,7 +74,6 @@ export async function GET(req) {
                     </div>
                 </div>
 
-                {/* DAY STRIP */}
                 <div style={{ display: 'flex', gap: 5, marginBottom: 10 }}>
                     {DAYS.map(day => {
                         const isToday = day === today;
@@ -104,7 +99,6 @@ export async function GET(req) {
                     })}
                 </div>
 
-                {/* TASK BLOCKS */}
                 <div style={{ display: 'flex', gap: 6, marginBottom: 10 }}>
                     {blocks.map((block, i) => {
                         const c = COLORS[block.type] || COLORS.routine;
@@ -130,9 +124,7 @@ export async function GET(req) {
                     })}
                 </div>
 
-                {/* BOTTOM BAR */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    {/* Habits */}
                     <div style={{ display: 'flex', gap: 5, flex: 1, flexWrap: 'wrap' }}>
                         {habitKeys.map((name, i) => {
                             const done = habitDone[i];
@@ -156,7 +148,6 @@ export async function GET(req) {
 
                     <div style={{ width: 1, height: 26, background: 'rgba(255,255,255,0.07)', flexShrink: 0 }} />
 
-                    {/* Streaks */}
                     <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
                         {Object.entries(scheduleData.streaks).map(([name, count]) => (
                             <div key={name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
@@ -168,7 +159,6 @@ export async function GET(req) {
 
                     <div style={{ width: 1, height: 26, background: 'rgba(255,255,255,0.07)', flexShrink: 0 }} />
 
-                    {/* Progress bar */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 4, flexShrink: 0, minWidth: 72 }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <span style={{ fontSize: 8, color: '#475569', fontWeight: 700, letterSpacing: '0.08em' }}>WEEK</span>

@@ -1,9 +1,8 @@
-// api/widget.js
-import { ImageResponse } from '@vercel/og';
-// Edge runtime uses relative path from root for config if not using app router
-import scheduleData from '../data/schedule.json';
+// app/api/widget/route.js
+import { ImageResponse } from 'next/og';
+import scheduleData from '../../../data/schedule.json';
 
-export const config = { runtime: 'edge' };
+export const runtime = 'edge';
 
 const COLORS = {
     college: { bg: '#1e3a5f', border: '#3B82F6', dot: '#60A5FA', text: '#BFDBFE' },
@@ -28,7 +27,7 @@ function getDate() {
     return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'Africa/Cairo' });
 }
 
-export default function handler(req) {
+export async function GET(req) {
     const url = new URL(req.url);
     const today = url.searchParams.get('day') || getToday();
     const time = getTime();

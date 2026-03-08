@@ -1,7 +1,7 @@
-// api/update.js
-export const config = { runtime: 'edge' };
+// app/api/update/route.js
+export const runtime = 'edge';
 
-export default async function handler(req) {
+export async function GET(req) {
     return new Response(JSON.stringify({
         message: "Remote update system ready.",
         instructions: "To update your widget data live, you have two options:",

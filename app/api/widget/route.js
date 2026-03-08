@@ -1,8 +1,9 @@
-// api/widget.js
-import { ImageResponse } from '@vercel/og';
-import scheduleData from '../data/schedule.json';
+// app/api/widget/route.js
+import { ImageResponse } from 'next/og';
+// We import from a relative path outside the app directory
+import scheduleData from '../../../../data/schedule.json';
 
-export const config = { runtime: 'edge' };
+export const runtime = 'edge';
 
 // ── Colors per block type ───────────────────────────────────────────────────
 const COLORS = {
@@ -28,7 +29,7 @@ function getDate() {
     return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'Africa/Cairo' });
 }
 
-export default function handler(req) {
+export async function GET(req) {
     const url = new URL(req.url);
     const today = url.searchParams.get('day') || getToday();
     const time = getTime();
